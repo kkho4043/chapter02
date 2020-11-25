@@ -43,45 +43,57 @@ public class TV {
 		this.power = on;
 	}
 
-	public int channel(int channel) {
-		this.channel = channel;
-		if (channel > 255) {
-			this.channel = 255;
-		} else if (channel < 1) {
-			this.channel = 1;
+	public void channel(int channel) {
+		if(power) {
+			
+			if (channel > 255) {
+				this.channel = 255;
+			} else if (channel < 1) {
+				this.channel = 1;
+			}else {
+				this.channel = channel;
+			}
 		}
 		
-		return this.channel;
 	}
 
 	public void channel(boolean channel) {
+		if(power) {
+			if (channel) {
+				this.channel++;
 
-		if (channel) {
-			this.channel++;
-
-		} else {
-			this.channel--;
+			} else {
+				this.channel--;
+			}
+			channel(this.channel);
 		}
-		this.channel = channel(this.channel);
+		
 	}
 
-	public int volume(int volume) {
-		this.volume = volume;
-		if(volume > 100) {
-			this.volume = 100;
-		}else if(volume < 0) {
-			this.volume = 0;
+	public void volume(int volume) {
+		if(power) {
+			
+			if(volume > 100) {
+				this.volume = 100;
+			}else if(volume < 0) {
+				this.volume = 0;
+			}else {
+				this.volume = volume;
+			}
 		}
-		return this.volume;
+		
+	
 	}
 
 	public void volume(boolean volume) {
-		if (volume) {
-			this.volume++;
-		} else {
-			this.volume--;
+		if(power) {
+			if (volume) {
+				this.volume++;
+			} else {
+				this.volume--;
+			}
+			volume(this.volume);
 		}
-		this.volume = volume(this.volume);
 	}
 
 	void status() {
