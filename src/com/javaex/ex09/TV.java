@@ -86,11 +86,7 @@ public class TV {
 
 	void status() {
 
-		if (power) {
-			System.out.println("TV´Â \"ÄÑÁü\" Ã¤³Î : " + channel + " ºÒ·ý : " + volume);
-		} else {
-			System.out.println("TV´Â \"²¨Áü\" Ã¤³Î : " + channel + " ºÒ·ý : " + volume);
-		}
+		System.out.println("Ã¤³Î : " +channel +  "\tºÒ·ý :" + volume + "\tÀü¿ø :" + power);;
 	}
 
 }
